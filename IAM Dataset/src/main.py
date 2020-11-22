@@ -1,6 +1,8 @@
 from __future__ import division
 from __future__ import print_function
 
+import matplotlib.pyplot as plt
+import numpy as np 
 import sys
 import argparse
 import cv2
@@ -17,17 +19,21 @@ class FilePaths:
 	fnTrain = '../data/'
 	fnInfer = '../data/test.png'
 	fnCorpus = '../data/corpus.txt'
+	check_val = []
+	epoch = 0
 
 
 def train(model, loader):
 	"train NN"
-	epoch = 0 # number of training epochs since start
+	#epoch = 0 # number of training epochs since start
 	bestCharErrorRate = float('inf') # best valdiation character error rate
 	noImprovementSince = 0 # number of epochs no improvement of character error rate occured
-	earlyStopping = 5 # stop training after this number of epochs without improvement
-	while True:
-		epoch += 1
-		print('Epoch:', epoch)
+	earlyStopping = 10 # stop training after this number of epochs without improvement
+	check_train = []
+	
+	while FilePaths.epoch<5:
+		FilePaths.epoch += 1
+		print('Epoch:', FilePaths.epoch)
 
 		# train
 		print('Train NN')
@@ -37,7 +43,8 @@ def train(model, loader):
 			batch = loader.getNext()
 			loss = model.trainBatch(batch)
 			print('Batch:', iterInfo[0],'/', iterInfo[1], 'Loss:', loss)
-
+			if iterInfo[0] == 180:
+				check_train.append([FilePaths.epoch,loss])
 		# validate
 		charErrorRate = validate(model, loader)
 		
@@ -56,6 +63,31 @@ def train(model, loader):
 		if noImprovementSince >= earlyStopping:
 			print('No more improvement since %d epochs. Training stopped.' % earlyStopping)
 			break
+	check_train = np.array(check_train)
+	np.savetxt('train_loss.csv', check_train, delimiter=',')
+	x = []
+	y = []
+
+	for i in range(len(check_train)):
+		x.append(check_train[i][0])
+		y.append(check_train[i][1])
+
+	plt.plot(x,y)
+	plt.savefig('train_loss')
+
+	FilePaths.check_val = np.array(FilePaths.check_val)
+	np.savetxt('val_loss.csv', FilePaths.check_val, delimiter=',')
+	
+	x = []
+	y = []
+
+	for i in range(len(FilePaths.check_val)):
+		x.append(FilePaths.check_val[i][0])
+		y.append(FilePaths.check_val[i][1])
+
+	plt.plot(x,y)
+	plt.savefig('val_loss')
+
 
 
 def validate(model, loader):
@@ -84,13 +116,17 @@ def validate(model, loader):
 	# print validation result
 	charErrorRate = numCharErr / numCharTotal
 	wordAccuracy = numWordOK / numWordTotal
+	FilePaths.check_val.append([FilePaths.epoch,wordAccuracy])
 	print('Character error rate: %f%%. Word accuracy: %f%%.' % (charErrorRate*100.0, wordAccuracy*100.0))
 	return charErrorRate
 
 
 def infer(model, fnImg):
 	"recognize text in image provided by file path"
-	img = preprocess(cv2.imread(fnImg, cv2.IMREAD_GRAYSCALE), Model.imgSize)
+	img = cv2.imread(fnImg)
+	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+	#cv2.imwrite("test.png", gray) 
+	img = preprocess(gray, Model.imgSize,True)
 	batch = Batch(None, [img])
 	(recognized, probability) = model.inferBatch(batch, True)
 	print('Recognized:', '"' + recognized[0] + '"')

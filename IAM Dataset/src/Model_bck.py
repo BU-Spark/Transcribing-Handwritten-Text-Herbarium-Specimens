@@ -4,6 +4,7 @@ from __future__ import print_function
 import sys
 import numpy as np
 import tensorflow as tf
+#import tensorflow.compat.v1 as tf
 import os
 
 
@@ -17,7 +18,7 @@ class Model:
 	"minimalistic TF model for HTR"
 
 	# model constants
-	batchSize = 512
+	batchSize = 50
 	imgSize = (128, 32)
 	maxTextLen = 32
 
@@ -45,7 +46,7 @@ class Model:
 		self.learningRate = tf.placeholder(tf.float32, shape=[])
 		self.update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS) 
 		with tf.control_dependencies(self.update_ops):
-			self.optimizer = tf.train.RMSPropOptimizer(self.learningRate).minimize(self.loss)
+			self.optimizer = tf.train.AdamOptimizer(self.learningRate).minimize(self.loss)
 
 		# initialize TF
 		(self.sess, self.saver) = self.setupTF()
@@ -56,9 +57,9 @@ class Model:
 		cnnIn4d = tf.expand_dims(input=self.inputImgs, axis=3)
 
 		# list of parameters for the layers
-		kernelVals = [5, 5, 3, 3, 3]
-		featureVals = [1, 32, 64, 128, 128, 256]
-		strideVals = poolVals = [(2,2), (2,2), (1,2), (1,2), (1,2)]
+		kernelVals = [5, 5, 3, 3, 3, 3,3]
+		featureVals = [1, 32, 64, 128, 128, 256,256,512]
+		strideVals = poolVals = [(2,2), (2,2), (1,2), (1,2), (1,2),(1,1),(2,1)]
 		numLayers = len(strideVals)
 
 		# create layers
@@ -105,6 +106,7 @@ class Model:
 
 		# calc loss for batch
 		self.seqLen = tf.placeholder(tf.int32, [None])
+		print(self.seqLen)        
 		self.loss = tf.reduce_mean(tf.nn.ctc_loss(labels=self.gtTexts, inputs=self.ctcIn3dTBC, sequence_length=self.seqLen, ctc_merge_repeated=True))
 
 		# calc loss for each element to compute label probability
@@ -151,7 +153,6 @@ class Model:
 		else:
 			print('Init with new values')
 			sess.run(tf.global_variables_initializer())
-            
 
 		return (sess,saver)
 
@@ -212,7 +213,7 @@ class Model:
 		"feed a batch into the NN to train it"
 		numBatchElements = len(batch.imgs)
 		sparse = self.toSparse(batch.gtTexts)
-		rate = 0.001 if self.batchesTrained < 50 else ( 0.0001) # decay learning rate
+		rate = 0.01 if self.batchesTrained < 10 else (0.001 if self.batchesTrained < 10000 else 0.0001) # decay learning rate
 		evalList = [self.optimizer, self.loss]
 		feedDict = {self.inputImgs : batch.imgs, self.gtTexts : sparse , self.seqLen : [Model.maxTextLen] * numBatchElements, self.learningRate : rate, self.is_train: True}
 		(_, lossVal) = self.sess.run(evalList, feedDict)

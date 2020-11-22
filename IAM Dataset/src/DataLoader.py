@@ -71,8 +71,8 @@ class DataLoader:
 
 		# split into training and validation set: 95% - 5%
         
-		splitIdx = int(0.95 * len(self.samples))
-        random.shuffle(self.samples)
+		splitIdx = int(0.80 * len(self.samples))
+		#random.shuffle(self.samples)
 		self.trainSamples = self.samples[:splitIdx]
 		self.validationSamples = self.samples[splitIdx:]
 
@@ -109,8 +109,8 @@ class DataLoader:
 		"switch to randomly chosen subset of training set"
 		self.dataAugmentation = True
 		self.currIdx = 0
-		random.shuffle(self.trainSamples)
-		self.samples = self.trainSamples[:self.numTrainSamplesPerEpoch]
+		#random.shuffle(self.trainSamples)
+		self.samples = self.trainSamples[:]#[:self.numTrainSamplesPerEpoch]
 
 	
 	def validationSet(self):
