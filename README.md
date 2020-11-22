@@ -1,7 +1,4 @@
 # Transcribing-Handwritten-Text-Herbarium-Specimens
 
-Downloaded images 
 
-Aquilegia: /restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset
-
-Trillium: /restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset/Trilium
+Working on improving baseline results of IAM dataset. Code is present under "IAM Dataset" folder.
