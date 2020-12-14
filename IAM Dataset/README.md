@@ -71,7 +71,7 @@ python main.py --train
 
 Below is the training loss obtained:
 
-<img src="./doc/training_loss.jpg" width="700" height="400">
+<img src="./doc/training_loss.jpg" width="550" height="400">
 
 ### Validation
 
@@ -79,6 +79,10 @@ After each epoch of training, validation is done on a validation set (the datase
 ```console
 python main.py --validate
 ```
+
+Below is the validation accuracy plot:
+
+<img src="./doc/validation_accuracy.jpg" width="500" height="400">
 
 ### Testing
 
