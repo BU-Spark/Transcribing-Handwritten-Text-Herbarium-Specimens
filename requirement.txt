@@ -1,3 +1,0 @@
-python = 3.6.5
-tensorflow = 1.12
-editdistance = 0.5.3
