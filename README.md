@@ -1,4 +1,6 @@
 # Transcribing-Handwritten-Text-Herbarium-Specimens
 
 
-Working on improving baseline results of IAM dataset. Code is present under "IAM Dataset" folder.
+Final code is present under "IAM Dataset" folder.
+
+Code for preprocessing herbarium dataset is present under "Herbarium Dataset" folder.
