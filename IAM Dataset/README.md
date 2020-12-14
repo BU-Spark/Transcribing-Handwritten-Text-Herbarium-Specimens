@@ -29,7 +29,7 @@ We want to make this process automated which requires the least manual intervent
 
 ## Dataset
 
-Given the complexity of the Herbarium Dataset, I started work on an IAM dataset which contains images having only handwritten text. 
+Given the complexity of the Herbarium Dataset, I started work on the IAM dataset which contains images having only handwritten text. 
 
 Downloaded dataset is also present in the below path. Copy all the files under the data folder of the cloned repository.
 
