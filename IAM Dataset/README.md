@@ -30,7 +30,7 @@ We want to make this process automated which require least manual intervention.
 
 Given the complexity of the Herbarium Dataset, I started work on IAM dataset which contains images having only handwritten text. 
 
-Downloaded dataset is also present in the below path. Copy the complete data folder.
+Downloaded dataset is also present in the below path. Copy all the files under data folder.
 
 ```console
 /restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset/IAM/data
