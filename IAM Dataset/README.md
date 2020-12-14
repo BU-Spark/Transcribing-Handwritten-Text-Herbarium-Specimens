@@ -30,7 +30,13 @@ We want to make this process automated which require least manual intervention.
 
 Given the complexity of the Herbarium Dataset, I started work on IAM dataset which contains images having only handwritten text. 
 
-Follow these instructions to get the dataset:
+Downloaded dataset is also present in the below path. Copy the complete data folder.
+
+```console
+/restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset/IAM/data
+```
+
+Alternatively, data can be downloaded from the host website. Follow these instructions to get the dataset:
 
 1. Register for free at this [website](http://www.fki.inf.unibe.ch/databases/iam-handwriting-database).
 2. Download `words/words.tgz`.
@@ -40,11 +46,6 @@ Follow these instructions to get the dataset:
 6. Put the content (directories `a01`, `a02`, ...) of `words.tgz` into `data/words/`.
 7. Go to `data/` and run `python checkDirs.py` for a rough check if everything is ok.
 
-Downloaded dataset is also present in the below path. Copy the complete data folder.
-
-```console
-/restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset/IAM/data
-```
 
 ## Information about model
 
@@ -67,6 +68,10 @@ If you want to train the model from scratch, delete the files contained in the `
 ```console
 python main.py --train
 ```
+
+Below is the training loss obtained:
+
+![nn_overview](./doc/nn_overview.png)
 
 ### Validation
 
