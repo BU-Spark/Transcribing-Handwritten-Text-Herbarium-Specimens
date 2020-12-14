@@ -24,13 +24,14 @@ We want to make this process automated which require least manual intervention.
 1. Clone this repository
 2. Install the required packages mentioned in requirement.txt
 3. Download the data as mentioned in [Dataset](#dataset) section
-4. To train/validate/test follow the instructions mentioned [Information about model](#information-about-model) section
+4. Go to the model/ directory and unzip the file model.zip (pre-trained on the IAM dataset). Take care that the unzipped files are placed directly into the model/ directory and not some subdirectory created by the unzip-program.
+5. To train/validate/test follow the instructions mentioned [Information about model](#information-about-model) section
 
 ## Dataset
 
 Given the complexity of the Herbarium Dataset, I started work on IAM dataset which contains images having only handwritten text. 
 
-Downloaded dataset is also present in the below path. Copy all the files under data folder.
+Downloaded dataset is also present in the below path. Copy all the files under data folder of cloned repository.
 
 ```console
 /restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset/IAM/data
