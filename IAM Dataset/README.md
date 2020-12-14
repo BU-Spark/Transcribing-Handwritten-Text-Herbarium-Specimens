@@ -23,7 +23,7 @@ We want to make this process automated which require least manual intervention.
 
 1. Clone this repository
 2. Install the required packages mentioned in requirement.txt
-3. Download the data as mentioned in [Dataset](#dataset) section
+3. Download the data as mentioned in [Dataset](#dataset) section (This is only required if training or validating model, not for testing)
 4. Go to the model/ directory and unzip the file model.zip (pre-trained on the IAM dataset). Take care that the unzipped files are placed directly into the model/ directory and not some subdirectory created by the unzip-program.
 5. To train/validate/test follow the instructions mentioned [Information about model](#information-about-model) section
 
