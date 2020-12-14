@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Objective](#objective)
+- [Installation](#installation)
 - [Dataset](#dataset)
 - [Information about model](#information-about-model)
 - [References](#references)
@@ -17,6 +18,13 @@ The objective of this project is to transcribe the handwritten text on images co
 * There is some text which is been faded away. Now these labels contains the information which is usedful to reachers in their further work. By transcribing these information we want to preserve the information we currently have from these labels before most of it is lost. Currently transcription is been done manually which requires a lot of manual effort time as well as financial investment. 
 
 We want to make this process automated which require least manual intervention.
+
+## Installation
+
+1. Clone this repository
+2. Install the required packages mentioned in requirement.txt
+3. Download the data as mentioned in [Dataset](#dataset) section
+4. To train/validate/test follow the instructions mentioned [Information about model](#information-about-model) section
 
 ## Dataset
 
@@ -82,13 +90,6 @@ To test the model on default image i.e test.png present in `src` directory , go 
 ```console
 python main.py 
 ```
-### Installation
-
-1. Clone this repository
-2. Install the required packages mentioned in requirement.txt
-3. Download the data as mentioned in [Dataset](#dataset) section
-4. To train/validate/test follow the instructions mentioned [Information about model](#information-about-model) section
-
 ## References
 
 Code has been extended from the below repo:
