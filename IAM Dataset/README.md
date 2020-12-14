@@ -51,7 +51,7 @@ The final model consists of 5 CNN layers, 2 RNN (LSTM) layers and the CTC loss a
 * Batch size is set to 512
 
 
-![nn_overview](./doc/model_overview.jpeg)
+![nn_overview](./doc/nn_overview.png)
 
 ### Training
 
@@ -76,7 +76,7 @@ python main.py --test_folder="<path to test image>"
 ```
 Sample for test_folder parameter:
 
-restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset/IAM/src/test.png"
+`"restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset/IAM/src/test.png"`
 
 To test the model on default image i.e test.png present in `src` directory , go to the `src/` directory and execute 
 ```console
