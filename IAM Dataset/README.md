@@ -71,7 +71,7 @@ python main.py --train
 
 Below is the training loss obtained:
 
-![nn_overview](./doc/nn_overview.png)
+<img src="./doc/training_loss.jpg" width="700" height="400">
 
 ### Validation
 
