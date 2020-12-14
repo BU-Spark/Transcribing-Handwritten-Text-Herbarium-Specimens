@@ -12,12 +12,12 @@
 
 ## Objective
 
-The objective of this project is to transcribe the handwritten text on images containing herbarium specimens. Herbarium specimens are the dried plants. These plats are stored in paper. Now this paper other than plants also contains different text information. As part of this project I was focused on particular information we called as label on the image. This label contains name of the curator, institution to which it belongs, species/category plant belongs and it’s collection date. A handful of these images have labels which are handwritten and date backs to early 20th century. The main reasons why this transcription is important:
-* The text on the images containing label is not in very readable format. So to make this information more readable such that it can reach to wider population even if it is in the researcher community, transcription is important.
+The objective of this project is to transcribe the handwritten text on images containing herbarium specimens. Herbarium specimens are the dried plants. These plants are stored in paper. Now this paper other than plants also contains different text information. As part of this project I was focused on particular information we called as a label on the image. This label contains the name of the curator, institution to which it belongs, species/category plant belongs and it’s collection date. A handful of these images have labels which are handwritten and date back to the early 20th century. The main reasons why this transcription is important:
+* The text on the images containing the label is not in very readable format. So to make this information more readable such that it can reach a wider population even if it is in the researcher community, transcription is important.
 
-* There is some text which is been faded away. Now these labels contains the information which is usedful to reachers in their further work. By transcribing these information we want to preserve the information we currently have from these labels before most of it is lost. Currently transcription is been done manually which requires a lot of manual effort time as well as financial investment. 
+* There is some text which has faded away. Now these labels contain information which is useful to researchers in their further work. By transcribing these information we want to preserve the information we currently have from these labels before most of it is lost. Currently transcription is being done manually which requires a lot of manual effort time as well as financial investment. 
 
-We want to make this process automated which require least manual intervention.
+We want to make this process automated which requires the least manual intervention.
 
 ## Installation
 
@@ -29,9 +29,9 @@ We want to make this process automated which require least manual intervention.
 
 ## Dataset
 
-Given the complexity of the Herbarium Dataset, I started work on IAM dataset which contains images having only handwritten text. 
+Given the complexity of the Herbarium Dataset, I started work on an IAM dataset which contains images having only handwritten text. 
 
-Downloaded dataset is also present in the below path. Copy all the files under data folder of cloned repository.
+Downloaded dataset is also present in the below path. Copy all the files under the data folder of the cloned repository.
 
 ```console
 /restricted/projectnb/cs501t2/Shubhangi/Herbarium_Project/Dataset/IAM/data
@@ -105,4 +105,5 @@ python main.py
 Code has been extended from the below repo:
 
 [IAM Dataset](https://github.com/githubharald/SimpleHTR)
+
 
