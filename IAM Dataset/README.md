@@ -1,12 +1,12 @@
 # IAM Dataset Handwritten Text Recognition 
 
-![](https://img.shields.io/badge/license-Apache2.0-blue.svg?style=flat) ![](https://img.shields.io/badge/python-3.6.5-green.svg?style=flat)  ![](https://img.shields.io/badge/tensorflow-1.12-orange.svg?style=flat)
+![](https://img.shields.io/badge/python-3.6.5-green.svg?style=flat)  ![](https://img.shields.io/badge/tensorflow-1.12-orange.svg?style=flat)
 
 ## Table of Contents
 
 - [Objective](#objective)
 - [Dataset](#dataset)
-- [Information about model](#Information-about-model)
+- [Information about model](#information-about-model)
 - [References](#references)
 
 ## Objective
@@ -82,7 +82,12 @@ To test the model on default image i.e test.png present in `src` directory , go 
 ```console
 python main.py 
 ```
+### Installation
 
+1. Clone this repository
+2. Install the required packages mentioned in requirement.txt
+3. Download the data as mentioned in [Dataset](#dataset) section
+4. To train/validate/test follow the instructions mentioned [Information about model](#information-about-model) section
 
 ## References
 
