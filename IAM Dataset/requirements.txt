@@ -13,4 +13,4 @@ tensorflow==1.12.0
 python = 3.6.5
 editdistance = 0.5.3
 
-Note: Complete training, validation, testing is done on linux server (SCC node 4)
+**Note**: Complete training, validation, testing is done on linux server (SCC node 4)
